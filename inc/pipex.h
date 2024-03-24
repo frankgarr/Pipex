@@ -6,7 +6,7 @@
 /*   By: frankgar <frankgar@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 09:58:12 by frankgar          #+#    #+#             */
-/*   Updated: 2024/03/17 20:14:56 by frankgar         ###   ########.fr       */
+/*   Updated: 2024/03/22 09:59:27 by frankgar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ typedef struct s_cmd
 typedef struct s_pipex
 {
 	t_cmd	cmd[2];
-	char	*inp;
-	char	*out;
+	//char	*inp;
+	//char	*out;
 	int		fd_ch1[2];
 	int		fd_ch2[2];
 	int		stt_c1;

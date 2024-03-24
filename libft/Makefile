@@ -6,7 +6,7 @@
 #    By: frankgar <frankgar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/17 20:46:05 by frankgar          #+#    #+#              #
-#    Updated: 2024/02/23 13:02:29 by frankgar         ###   ########.fr        #
+#    Updated: 2024/03/22 10:03:13 by frankgar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ $(NAME): $(OBJ) Makefile
 	ar -rcs $(NAME) $(OBJ)
 
 clean:
-	rm -rf $(DIR_OBJ) $(DIR_DEP)
+	rm -rf $(DIR_OBJ)
 
 fclean: clean
 	rm -rf $(NAME)

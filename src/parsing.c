@@ -6,7 +6,7 @@
 /*   By: frankgar <frankgar@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 19:55:47 by frankgar          #+#    #+#             */
-/*   Updated: 2024/03/17 20:13:43 by frankgar         ###   ########.fr       */
+/*   Updated: 2024/03/22 10:50:39 by frankgar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ int	get_path(char **path, t_pipex *data)
 	while (++y <= 1)
 	{
 		x = -1;
-		while (path[++x])
+		while (path[++x] && !data->cmd[y].path)
 		{
 			tmp = ft_strjoin(path[x], data->cmd[y].cmd[0]);
 			if (!tmp)
 				exit(ft_fd_printf(2, "%s", E_MALLOC) * 0 + 1);
-			if (access(tmp, 0) == 0)
+			if (access(tmp, F_OK) == 0)
 				data->cmd[y].path = ft_strdup(tmp);
 			if (tmp)
 			{
@@ -106,9 +106,9 @@ int	basic_parsing(int argc, char **argv, t_pipex *data)
 	data->fd_out = open(argv[4], O_TRUNC | O_CREAT | O_WRONLY, 0666);
 	if (data->fd_out < 0)
 		data->stt_c2 = ft_fd_printf(2, "%s: %s", argv[4], E_OPEN) * 0 - 1;
-	data->inp = ft_strdup(argv[1]);
-	data->out = ft_strdup(argv[4]);
-	if (!data->inp || !data->out)
-		exit(ft_fd_printf(2, "%s", E_MALLOC) * 0 + 1);
+	//data->inp = ft_strdup(argv[1]);
+	//data->out = ft_strdup(argv[4]);
+	//if (!data->inp || !data->out)
+	//	exit(ft_fd_printf(2, "%s", E_MALLOC) * 0 + 1);
 	return (0);
 }

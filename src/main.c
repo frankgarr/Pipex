@@ -6,7 +6,7 @@
 /*   By: frankgar <frankgar@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 12:44:08 by frankgar          #+#    #+#             */
-/*   Updated: 2024/03/17 20:14:08 by frankgar         ###   ########.fr       */
+/*   Updated: 2024/03/22 11:17:52 by frankgar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	child_two(int fork, t_pipex *data, char **env)
 		perror("Pipex: ");
 		exit(1);
 	}
+	close(data->fd_inp);
+	close(data->fd_out);
 	execve(data->cmd[1].path, data->cmd[1].cmd, env);
 	exit(ft_fd_printf(2, "Pipex: [%s] Command not found\n", \
 				data->cmd[1].cmd[0]) * 0 + 127);
@@ -59,6 +61,8 @@ int	child_one(int fork, t_pipex *data, char **env)
 		perror("Pipex: ");
 		exit(1);
 	}
+	close(data->fd_inp);
+	close(data->fd_out);
 	execve(data->cmd[0].path, data->cmd[0].cmd, env);
 	exit(ft_fd_printf(2, "Pipex: [%s] Command not found\n", \
 				data->cmd[0].cmd[0]) * 0 + 127);
